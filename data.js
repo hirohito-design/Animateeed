@@ -13,7 +13,7 @@ const PRODUCTS = [
     emoji: "☀️", rating: 4.7, reviews: 3210,
     tags: ["Editor's Choice", "Trending"],
     badge: "gold", badgeLabel: "Editor's Choice",
-    amazonUrl: "https://www.amazon.in/s?k=dot+and+key+vitamin+c+sunscreen+spf+50",
+    amazonUrl: "https://amzn.to/47fPrRW",
     concern: ["tanning", "pigmentation", "oily"],
     style: null, isTrending: true, isFeatured: true
   },
@@ -39,7 +39,7 @@ const PRODUCTS = [
     emoji: "🌟", rating: 4.5, reviews: 1450,
     tags: ["Budget Pick"],
     badge: "peach", badgeLabel: "Budget Pick",
-    amazonUrl: "https://www.amazon.in/s?k=wishcare+sunscreen+body+lotion+spf+50",
+    amazonUrl: "https://amzn.to/4suT9jh",
     concern: ["tanning"],
     style: null, isTrending: false, isFeatured: false
   },
@@ -52,7 +52,7 @@ const PRODUCTS = [
     emoji: "🎨", rating: 4.4, reviews: 8740,
     tags: ["Amazon Find"],
     badge: "peach", badgeLabel: "Bestseller",
-    amazonUrl: "https://www.amazon.in/s?k=loreal+paris+permanent+hair+colour",
+    amazonUrl: "https://amzn.to/4uQle6i",
     concern: [],
     style: null, isTrending: true, isFeatured: false
   },
@@ -65,7 +65,7 @@ const PRODUCTS = [
     emoji: "✨", rating: 4.6, reviews: 1980,
     tags: ["Editor's Choice"],
     badge: "gold", badgeLabel: "Editor's Choice",
-    amazonUrl: "https://www.amazon.in/s?k=loreal+glycolic+gloss+shampoo",
+    amazonUrl: "https://amzn.to/3NU0wl6",
     concern: [],
     style: null, isTrending: true, isFeatured: true
   },
