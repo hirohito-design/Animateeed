@@ -1,0 +1,22 @@
+/* blog-post.css */
+.post-hero { padding-bottom: 48px; }
+.post-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 40px;
+  padding-top: 48px;
+  padding-bottom: 64px;
+  align-items: start;
+}
+.post-body { min-width: 0; }
+.post-sidebar {}
+.post-product-callout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 20px 0 32px;
+}
+@media (max-width: 900px) {
+  .post-layout { grid-template-columns: 1fr; }
+  .post-sidebar { order: -1; }
+}

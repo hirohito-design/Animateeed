@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>About TrendyCartFinds – Honest Reviews for Indian Girls</title>
+<meta name="description" content="TrendyCartFinds helps Indian women discover affordable beauty, skincare and fashion finds on Amazon. Honest reviews, real budgets."/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<nav class="navbar scrolled" id="navbar">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo"><div class="navbar__logo-mark">✦</div><div class="navbar__logo-text">Trendy<span>Cart</span>Finds<span class="navbar__logo-sub">Budget Beauty & Fashion</span></div></a>
+    <nav class="navbar__nav">
+      <a href="index.html">Home</a><a href="category-skincare.html">Skincare</a><a href="category-fashion.html">Fashion</a><a href="blog.html">Blog</a><a href="about.html" class="active">About</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="navbar__actions">
+      <div class="navbar__search" id="navSearch"><input type="text" class="navbar__search-input" placeholder="Search…" id="navSearchInput" onkeydown="handleNavSearch(event)"/><button class="navbar__search-btn" onclick="toggleSearch()">🔍</button></div>
+      <button class="navbar__hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <input type="text" class="mobile-menu__search" placeholder="Search…" onkeydown="handleNavSearch(event)"/>
+  <a href="index.html">🏠 Home</a><a href="category-skincare.html">✨ Skincare</a><a href="blog.html">📝 Blog</a>
+</div>
+
+<!-- ABOUT HERO -->
+<section class="page-hero" style="background:linear-gradient(135deg,#FDF8F4,#FAE8E8,#FDE8D8)">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span>About</span></div>
+    <div style="max-width:680px">
+      <span class="badge badge-gold" style="margin-bottom:16px;display:inline-flex">💛 Our Story</span>
+      <h1 class="display-lg" style="margin-bottom:16px">We Help <em style="color:var(--clr-coral)">Budget-Conscious</em> Indian Girls Glow Up</h1>
+      <p class="body-lg" style="color:var(--clr-gray)">TrendyCartFinds was built on one simple belief: you shouldn't have to spend a fortune to look and feel great. We find the best affordable finds on Amazon so you don't have to scroll for hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center" data-aos="fade-up">
+      <div>
+        <div class="eyebrow" style="display:block;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--clr-coral);margin-bottom:12px">Our Mission</div>
+        <h2 class="display-md" style="margin-bottom:16px">Honest Reviews.<br/>Real Results.<br/><span style="color:var(--clr-coral)">Real Budgets.</span></h2>
+        <p style="color:var(--clr-gray);line-height:1.8;margin-bottom:16px">The Indian beauty market is flooded with overpriced products and paid promotions that don't work for our skin types. TrendyCartFinds cuts through the noise by testing and reviewing hundreds of products to find the ones that genuinely deliver results under ₹500.</p>
+        <p style="color:var(--clr-gray);line-height:1.8;margin-bottom:24px">We test every product we recommend. We disclose every affiliate link. And we never recommend something we wouldn't use ourselves.</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap">
+          <a href="blog.html" class="btn btn-primary">Read Our Reviews</a>
+          <a href="contact.html" class="btn btn-secondary">Work With Us</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="background:var(--gradient-hero);border-radius:var(--radius-xl);padding:28px;text-align:center">
+          <div style="font-size:2.5rem;font-weight:700;font-family:var(--font-display);color:var(--clr-coral)">200+</div>
+          <div style="font-size:0.875rem;color:var(--clr-gray);margin-top:4px">Products Tested</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#F0E0B0,#C9A84C20);border-radius:var(--radius-xl);padding:28px;text-align:center">
+          <div style="font-size:2.5rem;font-weight:700;font-family:var(--font-display);color:var(--clr-gold)">50K+</div>
+          <div style="font-size:0.875rem;color:var(--clr-gray);margin-top:4px">Monthly Readers</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#E8F5E9,#C5E1A5);border-radius:var(--radius-xl);padding:28px;text-align:center">
+          <div style="font-size:2.5rem;font-weight:700;font-family:var(--font-display);color:#2E7D32">100%</div>
+          <div style="font-size:0.875rem;color:var(--clr-gray);margin-top:4px">Honest Reviews</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#FCE4EC,#F48FB1);border-radius:var(--radius-xl);padding:28px;text-align:center">
+          <div style="font-size:2.5rem;font-weight:700;font-family:var(--font-display);color:var(--clr-coral)">₹500</div>
+          <div style="font-size:0.875rem;color:var(--clr-gray);margin-top:4px">Average Rec Price</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section" style="background:var(--clr-cream)">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <div class="eyebrow">Our Values</div>
+      <h2>What We Stand For</h2>
+    </div>
+    <div class="grid-3" data-aos="fade-up">
+      <div style="background:white;border-radius:var(--radius-xl);padding:32px;border:1px solid var(--clr-border);text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:16px">🔍</div>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:10px">Honest Reviews</h3>
+        <p style="font-size:0.875rem;color:var(--clr-gray);line-height:1.7">We say it how it is. If a product has cons, we list them. Our readers trust us because we never sugarcoat our reviews.</p>
+      </div>
+      <div style="background:white;border-radius:var(--radius-xl);padding:32px;border:1px solid var(--clr-border);text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:16px">🇮🇳</div>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:10px">India-First Approach</h3>
+        <p style="font-size:0.875rem;color:var(--clr-gray);line-height:1.7">Every product is tested and reviewed specifically for Indian skin types, Indian climate conditions, and Indian budgets.</p>
+      </div>
+      <div style="background:white;border-radius:var(--radius-xl);padding:32px;border:1px solid var(--clr-border);text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:16px">💰</div>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:10px">Budget First</h3>
+        <p style="font-size:0.875rem;color:var(--clr-gray);line-height:1.7">Looking great shouldn't require a premium budget. All our picks are curated with price-to-performance value as the top priority.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AFFILIATE DISCLOSURE -->
+<section class="section">
+  <div class="container" style="max-width:760px">
+    <div style="background:var(--clr-cream);border-radius:var(--radius-xl);padding:40px">
+      <h2 style="font-family:var(--font-display);font-size:1.4rem;font-weight:600;margin-bottom:14px">🔗 Affiliate Disclosure</h2>
+      <p style="color:var(--clr-gray);line-height:1.8;margin-bottom:16px">TrendyCartFinds participates in the Amazon Associates Program. When you click our links and make a purchase, we earn a small commission at no extra cost to you. This helps us keep the site running and the reviews coming.</p>
+      <p style="color:var(--clr-gray);line-height:1.8;">Our affiliate relationship with Amazon never influences our recommendations. We recommend products because we genuinely believe they're worth buying — not because of commission rates. We would give you the same honest advice even if we earned nothing.</p>
+      <a href="disclaimer.html" class="btn btn-secondary" style="margin-top:20px;display:inline-flex">Read Full Disclaimer →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="background:var(--clr-cream)">
+  <div class="container">
+    <div class="cta-banner">
+      <div class="cta-banner__content">
+        <h2>Ready to Discover Your Next Favourite Find?</h2>
+        <p>Browse our curated picks or subscribe for weekly beauty drops straight to your inbox.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+          <a href="category-skincare.html" class="btn btn-white btn-lg" style="background:white;color:var(--clr-coral);font-weight:700">✨ Browse Skincare</a>
+          <a href="blog.html" class="btn btn-lg" style="background:rgba(255,255,255,0.15);color:white;border:2px solid rgba(255,255,255,0.4)">📝 Read Reviews</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand"><div class="footer__logo"><div class="footer__logo-mark">✦</div><div class="footer__logo-text">Trendy<span>Cart</span>Finds</div></div><p class="footer__tagline">Honest budget beauty and fashion finds.</p><div class="footer__social"><a href="#" class="footer__social-link">📸</a><a href="#" class="footer__social-link">📌</a></div></div>
+      <div><div class="footer__col-title">Shop</div><ul class="footer__links"><li><a href="category-skincare.html">Skincare</a></li><li><a href="category-fashion.html">Fashion</a></li></ul></div>
+      <div><div class="footer__col-title">Explore</div><ul class="footer__links"><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li><li><a href="disclaimer.html">Disclaimer</a></li></ul></div>
+      <div><div class="footer__col-title">Newsletter</div><form onsubmit="handleFooterNewsletter(event)" class="footer__newsletter-form"><input type="email" class="footer__newsletter-input" placeholder="your@email.com" required id="footerEmail"/><button type="submit" class="btn btn-primary" style="width:100%;border-radius:8px">Subscribe →</button><div id="footerNlSuccess" style="display:none;color:#A5D6A7;font-size:0.82rem;margin-top:8px">✓ Subscribed!</div></form></div>
+    </div>
+    <div class="footer__bottom"><p class="footer__copyright">© 2025 TrendyCartFinds.</p></div>
+  </div>
+</footer>
+<div class="toast" id="toast"></div>
+<script src="data.js"></script><script src="app.js"></script>
+</body>
+</html>

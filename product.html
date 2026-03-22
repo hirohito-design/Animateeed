@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title id="pageTitle">Product Review – TrendyCartFinds</title>
+<meta name="description" id="pageDesc" content="Honest product review with pros, cons, price, and affiliate link on TrendyCartFinds."/>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="product.css"/>
+</head>
+<body>
+<nav class="navbar scrolled" id="navbar">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <div class="navbar__logo-mark">✦</div>
+      <div class="navbar__logo-text">Trendy<span>Cart</span>Finds<span class="navbar__logo-sub">Budget Beauty & Fashion</span></div>
+    </a>
+    <nav class="navbar__nav">
+      <a href="index.html">Home</a>
+      <a href="category-skincare.html">Skincare</a>
+      <a href="category-fashion.html">Fashion</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="navbar__actions">
+      <div class="navbar__search" id="navSearch">
+        <input type="text" class="navbar__search-input" placeholder="Search…" id="navSearchInput" onkeydown="handleNavSearch(event)"/>
+        <button class="navbar__search-btn" onclick="toggleSearch()">🔍</button>
+      </div>
+      <button class="navbar__hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <input type="text" class="mobile-menu__search" placeholder="Search…" onkeydown="handleNavSearch(event)"/>
+  <a href="index.html">🏠 Home</a>
+  <a href="category-skincare.html">✨ Skincare</a>
+  <a href="category-fashion.html">👗 Fashion</a>
+  <a href="blog.html">📝 Blog</a>
+</div>
+
+<div id="productContent">
+  <!-- Injected by JS -->
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo"><div class="footer__logo-mark">✦</div><div class="footer__logo-text">Trendy<span>Cart</span>Finds</div></div>
+        <p class="footer__tagline">Honest budget beauty and fashion finds for Indian women.</p>
+        <div class="footer__social"><a href="#" class="footer__social-link">📸</a><a href="#" class="footer__social-link">📌</a></div>
+      </div>
+      <div><div class="footer__col-title">Shop</div><ul class="footer__links"><li><a href="category-skincare.html">Skincare</a></li><li><a href="category-fashion.html">Fashion</a></li><li><a href="category-haircare.html">Haircare</a></li></ul></div>
+      <div><div class="footer__col-title">Explore</div><ul class="footer__links"><li><a href="blog.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><div class="footer__col-title">Newsletter</div><form onsubmit="handleFooterNewsletter(event)" class="footer__newsletter-form"><input type="email" class="footer__newsletter-input" placeholder="your@email.com" required id="footerEmail"/><button type="submit" class="btn btn-primary" style="width:100%;border-radius:8px">Subscribe →</button><div id="footerNlSuccess" style="display:none;color:#A5D6A7;font-size:0.82rem;margin-top:8px">✓ Subscribed!</div></form></div>
+    </div>
+    <div class="footer__bottom"><p class="footer__copyright">© 2025 TrendyCartFinds.</p><div class="footer__links-bottom"><a href="disclaimer.html">Disclaimer</a><a href="privacy.html">Privacy</a></div></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="product.js"></script>
+</body>
+</html>

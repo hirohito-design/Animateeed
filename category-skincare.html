@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Best Budget Skincare Products – TrendyCartFinds</title>
+<meta name="description" content="Shop the best budget skincare products under ₹500 for Indian skin. Honest reviews, Amazon picks for acne, dry skin, pigmentation and more."/>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="category.css"/>
+</head>
+<body>
+<nav class="navbar scrolled" id="navbar">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <div class="navbar__logo-mark">✦</div>
+      <div class="navbar__logo-text">Trendy<span>Cart</span>Finds<span class="navbar__logo-sub">Budget Beauty & Fashion</span></div>
+    </a>
+    <nav class="navbar__nav">
+      <a href="index.html">Home</a>
+      <a href="category-skincare.html" class="active">Skincare</a>
+      <a href="category-fashion.html">Fashion</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="navbar__actions">
+      <div class="navbar__search" id="navSearch">
+        <input type="text" class="navbar__search-input" placeholder="Search…" id="navSearchInput" onkeydown="handleNavSearch(event)"/>
+        <button class="navbar__search-btn" onclick="toggleSearch()" aria-label="Search">🔍</button>
+      </div>
+      <button class="navbar__hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <input type="text" class="mobile-menu__search" placeholder="Search…" onkeydown="handleNavSearch(event)"/>
+  <a href="index.html">🏠 Home</a>
+  <a href="category-skincare.html">✨ Skincare</a>
+  <a href="category-haircare.html">💆 Haircare</a>
+  <a href="category-bodycare.html">🌸 Bodycare</a>
+  <a href="category-fashion.html">👗 Fashion</a>
+  <a href="blog.html">📝 Blog</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero cat-hero" style="background:linear-gradient(135deg,#FDF8F4,#FDE8D8,#FAE8E8)">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span class="breadcrumb-sep">›</span>
+      <span>Skincare</span>
+    </div>
+    <div class="cat-hero__inner">
+      <div>
+        <div class="badge badge-pink" style="margin-bottom:14px">✨ 68 Curated Products</div>
+        <h1 class="display-lg" style="margin-bottom:12px">Budget Skincare<br/><em style="color:var(--clr-coral)">That Actually Works</em></h1>
+        <p class="body-lg" style="color:var(--clr-gray);max-width:480px">Genuine Amazon finds for every Indian skin type. All reviewed, all under ₹500, all worth buying.</p>
+      </div>
+      <div class="cat-hero__emoji">🧴✨🌿</div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTERS + PRODUCTS -->
+<section class="section" style="padding-top:32px">
+  <div class="container cat-layout">
+
+    <!-- Sidebar filters -->
+    <aside class="cat-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">🎯 Filter by Concern</div>
+        <div class="sidebar-options" id="concernFilters">
+          <label class="sidebar-check"><input type="checkbox" value="acne" onchange="applyFilters()"/> 🫧 Acne &amp; Breakouts</label>
+          <label class="sidebar-check"><input type="checkbox" value="oily" onchange="applyFilters()"/> 🫙 Oily Skin</label>
+          <label class="sidebar-check"><input type="checkbox" value="dry" onchange="applyFilters()"/> 💧 Dry Skin</label>
+          <label class="sidebar-check"><input type="checkbox" value="tanning" onchange="applyFilters()"/> ☀️ Sun Tanning</label>
+          <label class="sidebar-check"><input type="checkbox" value="pigmentation" onchange="applyFilters()"/> ✨ Pigmentation</label>
+          <label class="sidebar-check"><input type="checkbox" value="strawberry" onchange="applyFilters()"/> 🍓 Strawberry Skin</label>
+          <label class="sidebar-check"><input type="checkbox" value="underarms" onchange="applyFilters()"/> 🌸 Dark Underarms</label>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-title">💰 Price Range</div>
+        <div class="sidebar-options">
+          <label class="sidebar-check"><input type="radio" name="price" value="all" checked onchange="applyFilters()"/> All Prices</label>
+          <label class="sidebar-check"><input type="radio" name="price" value="200" onchange="applyFilters()"/> Under ₹200</label>
+          <label class="sidebar-check"><input type="radio" name="price" value="300" onchange="applyFilters()"/> Under ₹300</label>
+          <label class="sidebar-check"><input type="radio" name="price" value="500" onchange="applyFilters()"/> Under ₹500</label>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-title">⭐ Rating</div>
+        <div class="sidebar-options">
+          <label class="sidebar-check"><input type="radio" name="rating" value="all" checked onchange="applyFilters()"/> All Ratings</label>
+          <label class="sidebar-check"><input type="radio" name="rating" value="4" onchange="applyFilters()"/> ★★★★+ (4 stars)</label>
+          <label class="sidebar-check"><input type="radio" name="rating" value="4.5" onchange="applyFilters()"/> ★★★★★ (4.5+ stars)</label>
+        </div>
+      </div>
+      <button class="btn btn-outline btn-block" onclick="clearFilters()">Clear All Filters</button>
+    </aside>
+
+    <!-- Main content -->
+    <div class="cat-main">
+      <!-- Sort + count bar -->
+      <div class="cat-toolbar">
+        <div class="cat-count" id="productCount">Showing all skincare products</div>
+        <div class="cat-sort">
+          <label style="font-size:0.83rem;color:var(--clr-gray)">Sort by:</label>
+          <select class="form-select" style="width:auto;padding:8px 12px" onchange="applyFilters()">
+            <option value="trending">Trending</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Filter chips (active) -->
+      <div class="filter-bar" id="activeFilters" style="margin-bottom:20px"></div>
+
+      <!-- Product Grid -->
+      <div class="grid-3" id="productsGrid"></div>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="emptyState" style="display:none">
+        <div style="font-size:3rem;margin-bottom:12px">🔍</div>
+        <h3>No products found</h3>
+        <p>Try adjusting your filters to find what you're looking for.</p>
+        <button class="btn btn-primary" onclick="clearFilters()" style="margin-top:16px">Clear Filters</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCERN SHOP -->
+<section class="section" style="background:var(--clr-cream)">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">🌿 Targeted Solutions</div>
+      <h2>Shop by Skin Concern</h2>
+    </div>
+    <div class="concern-grid">
+      <a href="?concern=acne" class="concern-chip"><span class="concern-chip__icon">🫧</span><span>Acne</span></a>
+      <a href="?concern=tanning" class="concern-chip"><span class="concern-chip__icon">☀️</span><span>Tanning</span></a>
+      <a href="?concern=pigmentation" class="concern-chip"><span class="concern-chip__icon">✨</span><span>Pigmentation</span></a>
+      <a href="?concern=dry" class="concern-chip"><span class="concern-chip__icon">💧</span><span>Dry Skin</span></a>
+      <a href="?concern=oily" class="concern-chip"><span class="concern-chip__icon">🫙</span><span>Oily Skin</span></a>
+      <a href="?concern=strawberry" class="concern-chip"><span class="concern-chip__icon">🍓</span><span>Strawberry Skin</span></a>
+      <a href="?concern=underarms" class="concern-chip"><span class="concern-chip__icon">🌸</span><span>Dark Underarms</span></a>
+      <a href="?concern=sensitive" class="concern-chip"><span class="concern-chip__icon">🌸</span><span>Sensitive Skin</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED BLOGS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">📝 Skincare Guides</div>
+      <h2>Skincare Reviews & Guides</h2>
+    </div>
+    <div class="grid-3" id="skincareBlogs"></div>
+  </div>
+</section>
+
+<!-- FOOTER same across all pages -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <div class="footer__logo-mark">✦</div>
+          <div class="footer__logo-text">Trendy<span>Cart</span>Finds</div>
+        </div>
+        <p class="footer__tagline">Honest budget beauty and fashion finds for Indian women. Real reviews, real budgets.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link">📸</a>
+          <a href="#" class="footer__social-link">📌</a>
+          <a href="#" class="footer__social-link">▶️</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Shop</div>
+        <ul class="footer__links">
+          <li><a href="category-skincare.html">Skincare</a></li>
+          <li><a href="category-haircare.html">Haircare</a></li>
+          <li><a href="category-bodycare.html">Bodycare</a></li>
+          <li><a href="category-fashion.html">Fashion</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Explore</div>
+        <ul class="footer__links">
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Newsletter</div>
+        <form onsubmit="handleFooterNewsletter(event)" class="footer__newsletter-form">
+          <input type="email" class="footer__newsletter-input" placeholder="your@email.com" required id="footerEmail"/>
+          <button type="submit" class="btn btn-primary" style="width:100%;border-radius:8px">Subscribe →</button>
+          <div id="footerNlSuccess" style="display:none;color:#A5D6A7;font-size:0.82rem;margin-top:8px">✓ Subscribed!</div>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copyright">© 2025 TrendyCartFinds. Made with 💛 for Indian girls.</p>
+      <div class="footer__links-bottom">
+        <a href="disclaimer.html">Affiliate Disclaimer</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="category.js"></script>
+<script>initCategory('skincare');</script>
+</body>
+</html>

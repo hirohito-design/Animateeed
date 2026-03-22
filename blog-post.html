@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title id="postTitle">Blog Post – TrendyCartFinds</title>
+<meta name="description" id="postDesc" content="Read this honest review on TrendyCartFinds."/>
+<meta property="article:author" content="TrendyCartFinds Team"/>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="blog-post.css"/>
+</head>
+<body>
+<nav class="navbar scrolled" id="navbar">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <div class="navbar__logo-mark">✦</div>
+      <div class="navbar__logo-text">Trendy<span>Cart</span>Finds<span class="navbar__logo-sub">Budget Beauty & Fashion</span></div>
+    </a>
+    <nav class="navbar__nav">
+      <a href="index.html">Home</a>
+      <a href="category-skincare.html">Skincare</a>
+      <a href="category-fashion.html">Fashion</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="navbar__actions">
+      <div class="navbar__search" id="navSearch">
+        <input type="text" class="navbar__search-input" placeholder="Search…" id="navSearchInput" onkeydown="handleNavSearch(event)"/>
+        <button class="navbar__search-btn" onclick="toggleSearch()">🔍</button>
+      </div>
+      <button class="navbar__hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <input type="text" class="mobile-menu__search" placeholder="Search…" onkeydown="handleNavSearch(event)"/>
+  <a href="index.html">🏠 Home</a><a href="category-skincare.html">✨ Skincare</a><a href="blog.html">📝 Blog</a>
+</div>
+
+<div id="postContent"></div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand"><div class="footer__logo"><div class="footer__logo-mark">✦</div><div class="footer__logo-text">Trendy<span>Cart</span>Finds</div></div><p class="footer__tagline">Honest budget beauty and fashion finds for Indian women.</p></div>
+      <div><div class="footer__col-title">Shop</div><ul class="footer__links"><li><a href="category-skincare.html">Skincare</a></li><li><a href="category-fashion.html">Fashion</a></li></ul></div>
+      <div><div class="footer__col-title">Explore</div><ul class="footer__links"><li><a href="blog.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><div class="footer__col-title">Newsletter</div><form onsubmit="handleFooterNewsletter(event)" class="footer__newsletter-form"><input type="email" class="footer__newsletter-input" placeholder="your@email.com" required id="footerEmail"/><button type="submit" class="btn btn-primary" style="width:100%;border-radius:8px">Subscribe →</button><div id="footerNlSuccess" style="display:none;color:#A5D6A7;font-size:0.82rem;margin-top:8px">✓ Subscribed!</div></form></div>
+    </div>
+    <div class="footer__bottom"><p class="footer__copyright">© 2025 TrendyCartFinds.</p></div>
+  </div>
+</footer>
+<div class="toast" id="toast"></div>
+<script src="data.js"></script><script src="app.js"></script>
+<script>
+const BLOG_CONTENT = {
+  "best-sunscreens-under-500": {
+    intro: "Sunscreen is non-negotiable for Indian skin — especially with our climate. But most Indian women still skip it daily because they can't find one that doesn't leave a white cast, feels heavy, or breaks the bank. We tested 12 sunscreens across oily, dry, and combination skin types to find the only 5 you actually need.",
+    sections: [
+      { title: "🥇 #1 Best Overall: Minimalist SPF 50 PA++++", content: "The Minimalist sunscreen is genuinely groundbreaking for the Indian market. Zero white cast, lightweight formula, and actual PA++++ protection. At just ₹349, it's the best skincare investment you can make this summer. It layers beautifully under makeup and doesn't pill or feel greasy even in humid weather.", productId: 2 },
+      { title: "🌟 What Makes a Good Sunscreen for Indian Skin?", content: "Indian skin needs PA++++ rated sunscreens to protect against UVA radiation, which is responsible for tanning, pigmentation, and premature ageing. Look for: SPF 50+, PA++++ rating, no white cast, lightweight texture, and sweat/water resistance." },
+      { title: "💡 Pro Tips for Sunscreen Application", content: "Always apply 2 finger lengths of sunscreen for face and neck. Apply it as the LAST step of your skincare routine, but BEFORE makeup. Reapply every 2 hours if outdoors. Don't forget your neck, ears, and the back of your hands." }
+    ],
+    relatedProducts: [1, 2, 3]
+  },
+  "affordable-coord-sets-amazon": {
+    intro: "Co-ord sets are having their moment right now and honestly, they deserve it. A matching set instantly looks put-together and styled without any effort. The best part? Amazon India has some absolutely stunning options well under ₹600 that look 10x more expensive.",
+    sections: [
+      { title: "👗 #1 Best Pick: Linen Co-ord Set (Beige/Peach)", content: "This linen set is perfect for everything — college, brunch, even casual work days. The fabric is breathable, the fit is relaxed but intentional, and the color options are chef's kiss. Available in sizes S to 3XL at just ₹499 — this is a steal.", productId: 13 },
+      { title: "✨ Why Co-ord Sets are Worth It", content: "A good co-ord set gives you four outfit combinations from one purchase. Wear the set together, style the top with jeans, pair the bottom with a graphic tee — the versatility is unmatched. Plus they photograph beautifully for Instagram." },
+      { title: "💡 Styling Tips for Co-ord Sets", content: "Keep accessories minimal — a dainty chain necklace and small hoops are perfect. Add white sneakers for a casual vibe or block heels for a more polished look. A crossbody bag completes the aesthetic perfectly." }
+    ],
+    relatedProducts: [13, 14, 15]
+  },
+  "budget-skincare-oily-skin": {
+    intro: "Building a complete skincare routine doesn't have to cost ₹3000+. We've curated a full AM and PM routine for oily and acne-prone Indian skin types that covers all the basics — and it costs under ₹1000 total. Every product is an Amazon staple that genuinely works.",
+    sections: [
+      { title: "🌿 The ₹949 Complete Oily Skin Routine", content: "AM Routine: Plum Salicylic Acid Face Wash (₹229) → Minimalist Niacinamide Serum (₹449) → Light moisturiser → Minimalist SPF 50 (₹349). PM Routine: Face wash → Niacinamide serum → Optional retinol (once a week) → Moisturiser. Total spend: ₹949." },
+      { title: "⚠️ Common Mistakes Oily Skin Types Make", content: "Skipping moisturiser is the biggest mistake — oily skin still needs hydration. Using harsh face washes that over-strip the skin causes MORE oil production. And skipping SPF leads to pigmentation and post-acne marks that take months to fade." }
+    ],
+    relatedProducts: [1, 2, 4, 6]
+  },
+  "niacinamide-guide-beginners": {
+    intro: "Niacinamide (Vitamin B3) is hands down the most beginner-friendly skincare ingredient available. It works for nearly every skin type, has minimal side effects, and budget-friendly options exist under ₹500. Here's everything you need to know before adding it to your routine.",
+    sections: [
+      { title: "🧴 What Does Niacinamide Actually Do?", content: "Niacinamide regulates sebum production, reduces the appearance of pores, evens skin tone, and strengthens the skin barrier. It also helps fade post-acne marks and dark spots — making it ideal for Indian skin types that deal with hyperpigmentation." },
+      { title: "✅ Who Should Use Niacinamide?", content: "Niacinamide is perfect for oily, combination, acne-prone, and normal skin types. It's also generally safe for sensitive skin when introduced slowly. If you have dry skin, pair it with a good moisturiser." },
+      { title: "🥇 Best Budget Niacinamide Products", content: "The Minimalist 10% + Zinc 1% Serum (₹449) is the gold standard. It's highly concentrated and extremely effective. For beginners who want a lower concentration, The Ordinary Niacinamide 10% is also excellent.", productId: 1 }
+    ],
+    relatedProducts: [1, 3, 8]
+  },
+  "dark-spot-removal-products": {
+    intro: "Dark spots, post-acne marks, and hyperpigmentation are the number one skincare concern for Indian women. Whether it's sun damage, acne scars, or hormonal pigmentation, the right targeted products can make a genuine difference — and they don't have to be expensive.",
+    sections: [
+      { title: "✨ #1 Best Pick: Pilgrim 10% Vitamin C Serum", content: "Vitamin C is the gold standard for brightening and dark spot removal. At ₹399 with a stable formulation, Pilgrim's Vitamin C serum shows visible results in 4 weeks. Use it in your morning routine before SPF.", productId: 8 },
+      { title: "🌟 The Brightening Routine That Works", content: "AM: Vitamin C serum → SPF 50. PM: Niacinamide serum → Retinol (2-3 times a week). Weekly: Exfoliate with a gentle AHA product. Consistency is key — results take 4-8 weeks to show." }
+    ],
+    relatedProducts: [8, 1, 2]
+  },
+  "fashion-finds-under-499": {
+    intro: "Summer in India means maxed-out wardrobes but often minimal budget. The good news? Amazon India has an absolute treasure trove of summer-ready fashion finds well under ₹499 that look genuinely gorgeous. We did the scrolling so you don't have to.",
+    sections: [
+      { title: "🌸 #1 Best Buy: Floral Midi Dress", content: "This flowy floral midi dress hits every fashion brief — breathable fabric, beautiful print, and flattering silhouette. Perfect for college, outings, or even casual work environments. At ₹449 with free Prime delivery, it's the summer dress you've been waiting for.", productId: 14 },
+      { title: "💡 How to Style Budget Fashion Finds", content: "The trick to making affordable fashion look expensive is in the styling. Invest in a few good accessories — small gold earrings, a dainty chain, good sandals. Press/iron your clothes before wearing. And always ensure the fit is right — alterations cost ₹100-200 and make a huge difference." }
+    ],
+    relatedProducts: [13, 14, 15]
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const slug = getParam('slug');
+  const post = BLOG_POSTS.find(b => b.slug === slug) || BLOG_POSTS[0];
+  const content = BLOG_CONTENT[post.slug] || BLOG_CONTENT[BLOG_POSTS[0].slug];
+  renderPost(post, content);
+});
+
+function renderPost(post, content) {
+  document.getElementById('postTitle').textContent = `${post.title} – TrendyCartFinds`;
+  document.getElementById('postDesc').content = post.excerpt;
+
+  const relatedProducts = (content.relatedProducts || [])
+    .map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
+
+  const sectionsHtml = (content.sections || []).map(s => `
+    <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:600;margin:36px 0 14px;color:var(--clr-dark)">${s.title}</h2>
+    <p style="font-size:1.02rem;line-height:1.85;color:var(--clr-charcoal);margin-bottom:16px">${s.content}</p>
+    ${s.productId ? `
+    <div class="post-product-callout">
+      ${buildProductCard(PRODUCTS.find(p => p.id === s.productId) || PRODUCTS[0])}
+    </div>` : ''}
+  `).join('');
+
+  document.getElementById('postContent').innerHTML = `
+  <div class="post-hero" style="background:linear-gradient(135deg,#FDF8F4,#FAE8E8,#FDE8D8)">
+    <div class="container">
+      <div class="breadcrumb" style="padding-top:110px;margin-bottom:16px">
+        <a href="index.html">Home</a><span class="breadcrumb-sep">›</span>
+        <a href="blog.html">Blog</a><span class="breadcrumb-sep">›</span>
+        <span>${post.category}</span>
+      </div>
+      <div style="max-width:760px">
+        <span class="badge badge-${post.tag === 'skincare' ? 'pink' : 'peach'}" style="margin-bottom:16px;display:inline-flex">${post.category}</span>
+        <h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;line-height:1.2;margin-bottom:20px;color:var(--clr-dark)">${post.title}</h1>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:0.83rem;color:var(--clr-gray-light);margin-bottom:32px;align-items:center">
+          <span>📅 ${post.date}</span>
+          <span>⏱ ${post.readTime} read</span>
+          <span>👁 ${post.views} views</span>
+          <span class="badge badge-green">Honest Review</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container post-layout">
+    <article class="post-body">
+      <div style="font-size:4rem;text-align:center;background:var(--gradient-hero);border-radius:var(--radius-xl);padding:48px;margin-bottom:32px">${post.emoji}</div>
+
+      <p style="font-size:1.1rem;line-height:1.85;color:var(--clr-charcoal);margin-bottom:24px;font-style:italic;border-left:3px solid var(--clr-coral);padding-left:20px">${content.intro}</p>
+
+      ${sectionsHtml}
+
+      <!-- Affiliate Disclaimer -->
+      <div style="background:var(--clr-cream);border-radius:var(--radius-md);padding:16px 20px;font-size:0.8rem;color:var(--clr-gray);margin-top:40px;margin-bottom:32px">
+        <strong>💡 Disclosure:</strong> This post contains affiliate links. Clicking them and purchasing helps support TrendyCartFinds at no extra cost to you. We only recommend what we genuinely believe in.
+      </div>
+
+      <!-- Related Products -->
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:600;margin-bottom:20px;color:var(--clr-dark)">🛒 Products Mentioned in This Post</h2>
+      <div class="grid-auto" style="margin-bottom:48px">
+        ${relatedProducts.slice(0,4).map(p => buildProductCard(p)).join('')}
+      </div>
+
+      <!-- Share -->
+      <div style="border-top:1px solid var(--clr-border);padding-top:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <span style="font-size:0.875rem;color:var(--clr-gray)">Share this post:</span>
+        <button onclick="share('whatsapp',\`${post.title}\`)" class="btn btn-outline btn-sm">📱 WhatsApp</button>
+        <button onclick="share('copy',\`${post.title}\`)" class="btn btn-outline btn-sm">🔗 Copy Link</button>
+      </div>
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="post-sidebar">
+      <div style="position:sticky;top:88px">
+        <div style="background:var(--clr-cream);border-radius:var(--radius-lg);padding:24px;margin-bottom:20px">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--clr-charcoal);margin-bottom:14px">📚 More Reviews</div>
+          ${BLOG_POSTS.filter(b => b.slug !== post.slug).slice(0,4).map(b => `
+            <a href="blog-post.html?slug=${b.slug}" style="display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--clr-border);text-decoration:none;color:inherit">
+              <span style="font-size:1.5rem;flex-shrink:0">${b.emoji}</span>
+              <div>
+                <div style="font-size:0.83rem;font-weight:600;line-height:1.4;color:var(--clr-dark);margin-bottom:2px">${b.title.slice(0,55)}…</div>
+                <div style="font-size:0.75rem;color:var(--clr-gray-light)">${b.readTime} read</div>
+              </div>
+            </a>`).join('')}
+        </div>
+        <div style="background:linear-gradient(135deg,#FDE8D8,#FAE8E8);border-radius:var(--radius-lg);padding:24px;text-align:center">
+          <div style="font-size:2rem;margin-bottom:8px">💌</div>
+          <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:8px">Get Weekly Drops</div>
+          <p style="font-size:0.8rem;color:var(--clr-gray);margin-bottom:14px;line-height:1.6">New Amazon beauty finds every Tuesday.</p>
+          <form onsubmit="handleNewsletter(event)" style="display:flex;flex-direction:column;gap:8px">
+            <input type="email" id="nlEmail" placeholder="your@email.com" required style="padding:10px 14px;border-radius:9999px;border:2px solid var(--clr-border);font-size:0.85rem;outline:none"/>
+            <button type="submit" class="btn btn-primary" style="font-size:0.83rem">Subscribe →</button>
+            <div class="form-success" id="nlSuccess" style="font-size:0.8rem">✓ Subscribed! 🎉</div>
+          </form>
+        </div>
+      </div>
+    </aside>
+  </div>`;
+}
+
+function share(platform, title) {
+  const url = encodeURIComponent(window.location.href);
+  const text = encodeURIComponent(`Check this out: ${title}`);
+  if (platform === 'whatsapp') {
+    window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
+  } else if (platform === 'copy') {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      showToast('Link copied! 🔗', 'success');
+    });
+  }
+}
+</script>
+</body>
+</html>
